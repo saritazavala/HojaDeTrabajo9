@@ -3,32 +3,36 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class matrizDigrapho<V,E> {
+public class MatrizGrafo<V,E> {
+
     public int size;
-    public Object info[][];
+    public Arco<V> info[][];
     public Map<V,Vertice<V>> vert;
     public List<Integer> freeList;
-    public boolean negativeCycle;
-    Number[][] datos;
+    public List<String> lista;
+    Double[][] datos;
 
-    public matrizDigrapho(int size) {
+    public MatrizGrafo(int size) {
+        this.lista = new ArrayList<>();
         this.size = size;
-        this.info = new Object[size][size];
-        this.datos = new Number[size][size];
+        this.info = new Arco[size][size];
+        this.datos = new Double[size][size];
         this.vert = new HashMap<>(size);
         this.freeList = new ArrayList<>();
         for (int row = size-1; row >= 0; row--) { freeList.add(row); }
         for(int i = 0; i < datos.length; i++) {
             for(int j = 0; j < datos.length; j++) {
                 datos[i][j] = Double.POSITIVE_INFINITY;
+                if(i==j){
+                    datos[i][j] = 0.0;
+                }
             }
         }
     }
-    public void add(V label) {
-        if (vert.containsKey(label)) return;
-        int row = freeList.remove(0);
-        vert.put(label, new Vertice<>(label));
+    public void add(V nombre) {
+        if (vert.containsKey(nombre)) return;
+        int pos = freeList.remove(0);
+        vert.put(nombre, new Vertice<>(nombre,pos));
+        lista.add(nombre.toString());
     }
-
-    
 }
