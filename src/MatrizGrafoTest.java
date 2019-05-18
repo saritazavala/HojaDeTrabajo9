@@ -16,8 +16,6 @@ public class MatrizGrafoTest {
             System.out.println(probar);
             probar.datos = probar.floyd(probar.datos);
             System.out.println(probar);
-
-
         }
 
     @Test

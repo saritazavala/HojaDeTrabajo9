@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1034f138-96ed-456e-80a5-5212ca701cd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MatrizGrafoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HojaDeTrabajo9.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HojaDeTrabajo9.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MatrizGrafo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MatrizGrafo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MatrizGrafoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MatrizGrafoTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MatrizGrafoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="283">
+              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,7 +98,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558157099663" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558157330251" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -127,7 +124,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MatrizGrafoTest.Test0">
+  <component name="RunManager" selected="JUnit.MatrizGrafoTest.Test2">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="HojaDeTrabajo9" />
@@ -148,8 +145,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MatrizGrafoTest.Test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HojaDeTrabajo9" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MatrizGrafoTest" />
+      <option name="METHOD_NAME" value="Test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrizGrafoTest.Test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HojaDeTrabajo9" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MatrizGrafoTest" />
+      <option name="METHOD_NAME" value="Test2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MatrizGrafoTest.Test2" />
+        <item itemvalue="JUnit.MatrizGrafoTest.Test1" />
         <item itemvalue="JUnit.MatrizGrafoTest.Test0" />
         <item itemvalue="Application.Main" />
       </list>
@@ -175,6 +194,15 @@
     <history-entry file="MatrizGrafoTest_Test0 - 2019.05.17 at 23h 16m 46s.xml">
       <configuration name="MatrizGrafoTest.Test0" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MatrizGrafoTest_Test0 - 2019.05.17 at 23h 25m 27s.xml">
+      <configuration name="MatrizGrafoTest.Test0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrizGrafoTest_Test1 - 2019.05.17 at 23h 25m 36s.xml">
+      <configuration name="MatrizGrafoTest.Test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrizGrafoTest_Test2 - 2019.05.17 at 23h 25m 42s.xml">
+      <configuration name="MatrizGrafoTest.Test2" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -189,7 +217,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.44444445" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25980392" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -276,8 +304,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MatrizGrafoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="283">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
