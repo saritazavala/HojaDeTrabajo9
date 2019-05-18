@@ -1,46 +1,31 @@
-import javax.xml.soap.Node;
-
 public class Arco<V,E> {
+    public V vrt1;
+    public V vrt2;
+    public E nombre;
+    public boolean di;
+    public boolean visitado;
 
-    private Vertice origin;
-    private Vertice destination;
-    private double distance;
-
-    public Arco(Vertice origin, Vertice destination, double distance) {
-        this.origin = origin;
-        this.destination = destination;
-        this.distance = distance;
+    public Arco(V vrt1, V vrt2, E nombre, boolean di) {
+        this.vrt1 = vrt1;
+        this.vrt2 = vrt2;
+        this.nombre = nombre;
+        this.di = di;
+        this.visitado = false;
     }
-
-    public Vertice getOrigin() {
-        return origin;
+    public V there(){
+        return this.vrt2;
     }
-
-    public void setOrigin(Vertice origin) {
-        this.origin = origin;
+    public E label(){
+        return this.nombre;
     }
-
-    public Vertice getDestination() {
-        return destination;
+    public boolean isVisited(){
+        return visitado;
     }
-
-    public void setDestination(Vertice destination) {
-        this.destination = destination;
+    public V here() {
+        return this.vrt1;
     }
-
-    public double getDistance() {
-        return distance;
+    public void reset(){
+        visitado = false;
     }
-
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
-
-    @Override
-    public String toString() {
-        return "\n Edge [origin=" + origin.getCity() + ", destination=" + destination.getCity() + ", distance="
-                + distance + "]";
-    }
-
 
 }

@@ -11,10 +11,12 @@ public class Main {
             System.out.println("2. Modificar Grafo");
             System.out.println("3. Salir");
 
-
-
-
             String opcion = teclado.nextLine();
+
+            if (opcion == "1") {
+
+
+            }
         }
     }
 }
