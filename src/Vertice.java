@@ -6,11 +6,12 @@ public class Vertice<E> {
     public boolean visitado;
     int posicion;
 
-    public Vertice(E name, int posi) {
-        this.nombre = name;
-        this.visitado = false;
-        this.posicion = posi;
+    public Vertice(E nombre,  int posicion) {
+        this.nombre = nombre;
+        this.visitado = visitado;
+        this.posicion = posicion;
     }
+
 
     public boolean isVisited(){
         return visitado;

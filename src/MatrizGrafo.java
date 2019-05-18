@@ -11,21 +11,20 @@ public class MatrizGrafo<V,E> {
     //https://www.dreamincode.net/forums/topic/166043-help-me-implement-addedge-method/
     // http://dept.cs.williams.edu/~bailey/JavaStructures/Book_files/JavaStructures.pdf
     //https://algorithms.tutorialhorizon.com/graph-implementation-adjacency-matrix-set-3/
-
-    public int size;
-    public Arco<V> info[][]; //Matriz
-    public Map<V,Vertice<V>> vert;
+    public Arco<V> matriz[][]; //Matriz
+    public Map<V,Vertice<V>> dict;
     public List<Integer> freeList;
     public List<String> lista;
     Double[][] datos; //Distancias
+    public int size;
 
 
     public MatrizGrafo(int size) {
         this.lista = new ArrayList<>();
         this.size = size;
-        this.info = new Arco[size][size];
+        this.matriz = new Arco[size][size];
         this.datos = new Double[size][size];
-        this.vert = new HashMap<>(size);
+        this.dict = new HashMap<>(size);
         this.freeList = new ArrayList<>();
         for (int row = size-1; row >= 0; row--) { freeList.add(row); }
         for(int i = 0; i < datos.length; i++) {
@@ -38,21 +37,21 @@ public class MatrizGrafo<V,E> {
         }
     }
     public void add(V nombre) {
-        if (vert.containsKey(nombre)) return;
+        if (dict.containsKey(nombre)) return;
         int pos = freeList.remove(0);
-        vert.put(nombre, new Vertice<>(nombre,pos));
+        dict.put(nombre, new Vertice<>(nombre,pos));
         lista.add(nombre.toString());
     }
 
 
     public boolean addEdge(V vtx1, V vtx2, double label) {
-        Vertice<V> vertice1 = vert.get(vtx1);
-        Vertice<V> vertice2 = vert.get(vtx2);
+        Vertice<V> vertice1 = dict.get(vtx1);
+        Vertice<V> vertice2 = dict.get(vtx2);
         // Verifica que los vertices esten en el mapa
         if(vertice1 == null || vertice2 == null) {
             return false;
         }else {
-            info[vertice1.getPosicion()][vertice2.getPosicion()] = new Arco<V>(vtx1, vtx2, label, true);
+            matriz[vertice1.getPosicion()][vertice2.getPosicion()] = new Arco<V>(vtx1, vtx2, label, true);
             datos[vertice1.getPosicion()][vertice2.getPosicion()] = label;
             return true;
         }
@@ -61,20 +60,20 @@ public class MatrizGrafo<V,E> {
     public String removeEdge(V vrt1, V vrt2){
         String cadena1 = "No se realizo la accion";
         String cadena2 = "Se realizo la accion";
-        Vertice<V> vertice1 = vert.get(vrt1);
-        Vertice<V> vertice2 = vert.get(vrt2);
+        Vertice<V> vertice1 = dict.get(vrt1);
+        Vertice<V> vertice2 = dict.get(vrt2);
         if(vertice1 == null || vertice2 == null) {
             return cadena1;
         }else {
-            info[vertice1.getPosicion()][vertice2.getPosicion()] = null;
+            matriz[vertice1.getPosicion()][vertice2.getPosicion()] = null;
             datos[vertice1.getPosicion()][vertice2.getPosicion()] = Double.POSITIVE_INFINITY;
             return cadena2;
         }
     }
 
     public String getRutaMasCorta(V label1, V label2) {
-        Vertice<V> vtx1 = vert.get(label1);
-        Vertice<V> vtx2 = vert.get(label2);
+        Vertice<V> vtx1 = dict.get(label1);
+        Vertice<V> vtx2 = dict.get(label2);
         if (vtx1 == null || vtx2 == null) return "No hay conexion!";
         return "La ruta mas corta es de: " + this.datos[vtx1.posicion][vtx2.posicion] + ".";
     }
@@ -82,26 +81,26 @@ public class MatrizGrafo<V,E> {
 
     public String getCentroGrafo(V label) {
 
-        int[] columna = new int[datos.length];
+        int[] columnaMax = new int[datos.length];
         for (int i = 0; i < datos.length; i++) {
-            Double max = datos[i][0];
-            int pos = 0;
+            Double MAX = datos[i][0];
+            int post = 0;
             for (int j = 0; j < datos.length; j++) {
                 if (i != j) {
                     Double temp = datos[i][j];
-                    if (temp > max) {
-                        max = temp;
-                        pos = j;
+                    if (temp > MAX) {
+                        MAX = temp;
+                        post = j;
                     }
                 }
             }
-            columna[i] = pos;
+            columnaMax[i] = post;
         }
 
         int minPos = 0;
-        Number min = columna[0];
-        for (int x = 0; x < columna.length; x++) {
-            Number temp = columna[x];
+        Number min = columnaMax[0];
+        for (int x = 0; x < columnaMax.length; x++) {
+            Number temp = columnaMax[x];
             if (temp.doubleValue() < min.doubleValue()) {
                 min = temp;
                 minPos = x;
@@ -113,8 +112,8 @@ public class MatrizGrafo<V,E> {
 
 
     public Double getDistanciaMinima(V nom1, V nom2) {
-        Vertice<V> vtx1 = vert.get(nom1);
-        Vertice<V> vtx2 = vert.get(nom2);
+        Vertice<V> vtx1 = dict.get(nom1);
+        Vertice<V> vtx2 = dict.get(nom2);
         if (vtx1 == null || vtx2 == null){
             return null;
         }
@@ -122,10 +121,11 @@ public class MatrizGrafo<V,E> {
     }
     //Referencia en que me base para realizar lo de Floyd
     //https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_algoritmo_de_Floyd_en_Java
-    public String floyd(long[][] adyacencia)
+
+    public Double[][] floyd(Double[][] adyacencia)
     {
         int n=adyacencia.length;
-        long D[][]=adyacencia;
+        Double D[][]=adyacencia;
 
         String enlaces[][]=new String [n][n];
         String[][] aux_enlaces=new String[adyacencia.length][adyacencia.length];
@@ -140,11 +140,11 @@ public class MatrizGrafo<V,E> {
         for (int k = 0; k < n; k++) {
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    float aux=D[i][j];
-                    float aux2=D[i][k];
-                    float aux3=D[k][j];
-                    float aux4=aux2+aux3;
-                    float res=Math.min(aux,aux4);
+                    Double aux=D[i][j];
+                    Double aux2=D[i][k];
+                    Double aux3=D[k][j];
+                    Double aux4=aux2+aux3;
+                    Double res=Math.min(aux,aux4);
                     if(aux!=aux4)
                     {
                         if(res==aux4)
@@ -154,35 +154,11 @@ public class MatrizGrafo<V,E> {
                             enlaces[i][j]=enlaces(i,k,aux_enlaces,enl_rec)+(k+1);
                         }
                     }
-                    D[i][j]=(long) res;
+                    D[i][j]=(Double) res;
                 }
             }
         }
-
-        String cadena="";
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                cadena+=D[i][j]+" ";
-            }
-            cadena+="\n";
-        }
-
-        String enlacesres="";
-        for (int i = 0; i <n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(i!=j)
-                {
-                    if(enlaces[i][j].equals("")==true)
-                    {
-                        enlacesres+=" De ( "+(i+1)+" a "+(j+1)+" ) = "+"( "+(i+1)+" , "+(j+1)+" )"+"\n";
-                    }
-                    else
-                        enlacesres+=" De ( "+(i+1)+" a "+(j+1)+" ) = ( "+(i+1)+" , "+enlaces[i][j]+" , "+(j+1)+")\n";
-                }
-            }
-        }
-
-        return "las distancias minimas entre nodos son: \n"+cadena+"\nlos caminos minimos entre nodosson:\n"+enlacesres;
+        return D;
     }
 
     public String enlaces(int i,int k,String[][] aux_enlaces,String enl_rec)
@@ -198,7 +174,7 @@ public class MatrizGrafo<V,E> {
         }
     }
 
-    
+
 
 
     }
