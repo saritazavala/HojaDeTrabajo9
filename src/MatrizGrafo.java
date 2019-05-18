@@ -12,12 +12,12 @@ public class MatrizGrafo<V,E> {
     // http://dept.cs.williams.edu/~bailey/JavaStructures/Book_files/JavaStructures.pdf
     //https://algorithms.tutorialhorizon.com/graph-implementation-adjacency-matrix-set-3/
 
-    private Arco<V> matriz[][]; //Matriz
-    private Map<V,Vertice<V>> dict;
-    private List<Integer> freeList;
-    private List<String> lista;
-    private  Double[][] datos; //Distancias
-    private int size;
+    protected Arco<V> matriz[][]; //Matriz
+    protected Map<V,Vertice<V>> dict;
+    protected List<Integer> freeList;
+    protected List<String> lista;
+    protected  Double[][] datos; //Distancias
+    protected int size;
 
 
     public MatrizGrafo(int size) {
@@ -45,16 +45,16 @@ public class MatrizGrafo<V,E> {
     }
 
 
-    public boolean addEdge(V vtx1, V vtx2, double label) {
+    public String addEdge(V vtx1, V vtx2, double label) {
         Vertice<V> vertice1 = dict.get(vtx1);
         Vertice<V> vertice2 = dict.get(vtx2);
         // Verifica que los vertices esten en el mapa
         if(vertice1 == null || vertice2 == null) {
-            return false;
+            return "No se encuntra";
         }else {
             matriz[vertice1.getPosicion()][vertice2.getPosicion()] = new Arco<V>(vtx1, vtx2, label, true);
             datos[vertice1.getPosicion()][vertice2.getPosicion()] = label;
-            return true;
+            return "Realizado con exito";
         }
     }
 
