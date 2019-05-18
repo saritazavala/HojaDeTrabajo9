@@ -20,7 +20,7 @@ public class MatrizGrafoTest {
             probar.addEdge("dos", "tres", 10);
             probar.addEdge("uno", "tres", 8);
             System.out.println(probar);
-            probar.datos = probar.floyd(probar.datos);
+            probar.floyd();
             System.out.println(probar);
         }
 

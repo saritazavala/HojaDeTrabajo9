@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Scanner teclado = new Scanner(System.in);
-        /*MatrizGrafo<String> nuevoGrafo = new MatrizGrafo<String>(1);
+        MatrizGrafo<String> nuevoGrafo = new MatrizGrafo<String>(1);
         File file = new File("guategrafo.txt");
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
@@ -37,12 +37,7 @@ public class Main {
             nuevoGrafo.addEdge(ciudadOrigen,ciudadDestino,x);
 
 
-        }*/
-
-
-
-
-
+        }
 
         while (true) {
             System.out.println("Menu de opciones");

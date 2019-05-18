@@ -12,8 +12,10 @@ Grafos y Floyd
 public class MatrizGrafo<V> {
 
     //Referencias tomadas
+    //https://www.baeldung.com/java-graphs
     //Todos los metodos que se encuentran en esta clase fueron tomados de intenet y modificados para el uso de esat hoja
     //http://www.ciberaula.com/articulo/grafos
+    //https://www.geeksforgeeks.org/graph-and-its-representations/
     //http://www.cs.williams.edu/~jeannie/cs136/javadoc/structure5/structure5/GraphMatrixDirected.html#GraphMatrixDirected
     //http://www.java2s.com/Code/Java/Collections-Data-Structure/Adirectedgraphdatastructure.htm
     //https://www.dreamincode.net/forums/topic/166043-help-me-implement-addedge-method/
@@ -28,6 +30,10 @@ public class MatrizGrafo<V> {
     protected int size;
 
 
+    /**
+     * @param size
+     * Constructor
+     */
     public MatrizGrafo(int size) {
         this.lista = new ArrayList<>();
         this.size = size;
@@ -45,17 +51,21 @@ public class MatrizGrafo<V> {
             }
         }
     }
+
+    /**
+     * Printear el grafo
+     */
     public void MostrarEnPantalla() {
         System.out.println("Matriz: ");
         for(int k = lista.size()-1; k >=0; k--){
             System.out.print(lista.get(k)+"\t\t");
         }
         System.out.println("");
-        int no = lista.size()-1;
+        int number = lista.size()-1;
         for (int i = 0; i < datos.length; i++) {
-            if(no>=0){
-                System.out.print(lista.get(no).toString()+"\t\t");
-                no--;
+            if(number>=0){
+                System.out.print(lista.get(number).toString()+"\t\t");
+                number--;
             }
             for (int j = 0; j <datos.length; j++) {
                 System.out.print(datos[i][j]+ "\t\t");
@@ -63,6 +73,11 @@ public class MatrizGrafo<V> {
             System.out.println();
         }
     }
+
+    /**
+     * @param nombre
+     * Añadir Vertices
+     */
     public void add(V nombre) {
         if (dict.containsKey(nombre)) return;
         int pos = freeList.remove(0);
@@ -71,6 +86,14 @@ public class MatrizGrafo<V> {
     }
 
 
+    /**
+     * @param vtx1
+     * @param vtx2
+     * @param label
+     * @return
+     *
+     * Añadir Arcos
+     */
     public String addEdge(V vtx1, V vtx2, double label) {
         Vertice<V> vertice1 = dict.get(vtx1);
         Vertice<V> vertice2 = dict.get(vtx2);
@@ -84,6 +107,13 @@ public class MatrizGrafo<V> {
         }
     }
 
+    /**
+     * @param vrt1
+     * @param vrt2
+     * @return
+     *
+     * Eliminar Arcos
+     */
     public String removeEdge(V vrt1, V vrt2){
         String cadena1 = "No se realizo la accion";
         String cadena2 = "Se realizo la accion";
@@ -98,6 +128,13 @@ public class MatrizGrafo<V> {
         }
     }
 
+    /**
+     * @param label1
+     * @param label2
+     * @return
+     *
+     * Ruta mas corta entre orgien y destino
+     */
     public String getRutaMasCorta(V label1, V label2) {
         Vertice<V> vtx1 = dict.get(label1);
         Vertice<V> vtx2 = dict.get(label2);
@@ -106,6 +143,12 @@ public class MatrizGrafo<V> {
     }
 
 
+    /**
+     * @param label
+     * @return
+     *
+     * Encontrar el centro del grafo
+     */
     public String getCentroGrafo(V label) {
 
         int[] columnaMax = new int[datos.length];
@@ -138,6 +181,13 @@ public class MatrizGrafo<V> {
         }
 
 
+    /**
+     * @param nom1
+     * @param nom2
+     * @return
+     *
+     * Distancia Minima
+     */
     public Double getDistanciaMinima(V nom1, V nom2) {
         Vertice<V> vtx1 = dict.get(nom1);
         Vertice<V> vtx2 = dict.get(nom2);
@@ -149,13 +199,16 @@ public class MatrizGrafo<V> {
     //Referencia en que me base para realizar lo de Floyd
     //https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_algoritmo_de_Floyd_en_Java
 
-    public Double[][] floyd(Double[][] adyacencia)
+    /**
+     * Algoritmo de Floyd implementado
+     */
+    public void floyd()
     {
-        int n=adyacencia.length;
-        Double D[][]=adyacencia;
+        int n=datos.length;
+        Double D[][]=datos;
 
         String enlaces[][]=new String [n][n];
-        String[][] aux_enlaces=new String[adyacencia.length][adyacencia.length];
+        String[][] aux_enlaces=new String[datos.length][datos.length];
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -185,12 +238,16 @@ public class MatrizGrafo<V> {
                 }
             }
         }
-        return D;
+        datos=D;
     }
 
+    /**
+     * Metodo de ayuda para el algoritmo de floyd, extriado de:
+     * https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_algoritmo_de_Floyd_en_Java
+     */
     public String enlaces(int i,int k,String[][] aux_enlaces,String enl_rec)
     {
-        if(aux_enlaces[i][k].equals("")==true)
+        if(aux_enlaces[i][k].equals(""))
         {
             return "";
         }
@@ -201,7 +258,11 @@ public class MatrizGrafo<V> {
         }
     }
 
-
+    
 
 
     }
+
+
+
+

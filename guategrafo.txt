@@ -1,6 +1,7 @@
-Guatemala Escuintla 100
-Peten Guatemala 380
-Panajachel Retalhuleu  75
-Huehuetenango Guatemala 375
-Quiche Escuintla 400
-SanLucas AntiguaGuatemala 5
+Guate Mixco 60
+Guate Peten 463
+Retal Guate 100
+Antigua Guate 36
+Guate Antigua 36
+Solola Peten 120
+Antigua Retal 190
