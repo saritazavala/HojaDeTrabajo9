@@ -1,26 +1,26 @@
 public class Arco<V> {
 
-    public V vrt1;
-    public V vrt2;
-    public double distancia;
-    public boolean bool;
-    public boolean visitado;
+    private V vrtx1;
+    private V vrtx2;
+    private double distancia;
+    private boolean bool;
+    private boolean visitado;
 
-    public Arco(V vrt1, V vrt2, double distancia, boolean bool) {
-        this.vrt1 = vrt1;
-        this.vrt2 = vrt2;
+    public Arco(V vrtvrtx11, V vrtx2, double distancia, boolean bool) {
+        this.vrtx1 = vrtx1;
+        this.vrtx2 = vrtx2;
         this.distancia = distancia;
         this.bool = bool;
         this.visitado = false;
     }
     public V here() {
-        return this.vrt1;
+        return this.vrtx1;
     }
     public void reset(){
         visitado = false;
     }
     public V there(){
-        return this.vrt2;
+        return this.vrtx2;
     }
     public double label(){
         return this.distancia;

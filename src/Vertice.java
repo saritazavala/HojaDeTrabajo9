@@ -2,8 +2,8 @@
 
 public class Vertice<E> {
 
-    public E nombre;
-    public boolean visitado;
+    private E nombre;
+    private boolean visitado;
     int posicion;
 
     public Vertice(E nombre,  int posicion) {

@@ -11,12 +11,13 @@ public class MatrizGrafo<V,E> {
     //https://www.dreamincode.net/forums/topic/166043-help-me-implement-addedge-method/
     // http://dept.cs.williams.edu/~bailey/JavaStructures/Book_files/JavaStructures.pdf
     //https://algorithms.tutorialhorizon.com/graph-implementation-adjacency-matrix-set-3/
-    public Arco<V> matriz[][]; //Matriz
-    public Map<V,Vertice<V>> dict;
-    public List<Integer> freeList;
-    public List<String> lista;
-    Double[][] datos; //Distancias
-    public int size;
+
+    private Arco<V> matriz[][]; //Matriz
+    private Map<V,Vertice<V>> dict;
+    private List<Integer> freeList;
+    private List<String> lista;
+    private  Double[][] datos; //Distancias
+    private int size;
 
 
     public MatrizGrafo(int size) {
@@ -74,7 +75,7 @@ public class MatrizGrafo<V,E> {
     public String getRutaMasCorta(V label1, V label2) {
         Vertice<V> vtx1 = dict.get(label1);
         Vertice<V> vtx2 = dict.get(label2);
-        if (vtx1 == null || vtx2 == null) return "No hay conexion!";
+        if (vtx1 == null || vtx2 == null) return "Conexion no existente ";
         return "La ruta mas corta es de: " + this.datos[vtx1.posicion][vtx2.posicion] + ".";
     }
 

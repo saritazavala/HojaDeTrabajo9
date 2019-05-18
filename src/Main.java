@@ -7,6 +7,8 @@ public class Main {
 
         //Leer documento
 
+
+
         while (true) {
             System.out.println("Menu de opciones");
             System.out.println("1. Buscar distancia entre ciudades");
