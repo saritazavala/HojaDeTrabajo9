@@ -2,22 +2,31 @@
 
 public class Vertice<E> {
 
-    int posicion;
     public E nombre;
     public boolean visitado;
-    public Vertice(E name, int pos) {
+    int posicion;
+
+    public Vertice(E name, int posi) {
         this.nombre = name;
         this.visitado = false;
-        this.posicion = pos;
+        this.posicion = posi;
     }
+
     public boolean isVisited(){
         return visitado;
     }
+
+    public boolean equals(Object o){
+        return false;
+    }
+
     public void reset(){
         visitado = false;
     }
+
     public int getPosicion(){
         return this.posicion;
     }
+
 
 }
