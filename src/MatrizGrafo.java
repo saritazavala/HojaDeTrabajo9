@@ -2,9 +2,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+/*
+Sara Zavala 18893
+Hoja de Trabajo 9
+Estructura de Datos
+Grafos y Floyd
+* */
 
 public class MatrizGrafo<V,E> {
 
+    //Referencias tomadas
+    //Todos los metodos que se encuentran en esta clase fueron tomados de intenet y modificados para el uso de esat hoja
     //http://www.ciberaula.com/articulo/grafos
     //http://www.cs.williams.edu/~jeannie/cs136/javadoc/structure5/structure5/GraphMatrixDirected.html#GraphMatrixDirected
     //http://www.java2s.com/Code/Java/Collections-Data-Structure/Adirectedgraphdatastructure.htm
