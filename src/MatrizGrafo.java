@@ -144,12 +144,11 @@ public class MatrizGrafo<V> {
 
 
     /**
-     * @param label
-     * @return
      *
+     * @return String
      * Encontrar el centro del grafo
      */
-    public String getCentroGrafo(V label) {
+    public String getCentroGrafo() {
 
         int[] columnaMax = new int[datos.length];
         for (int i = 0; i < datos.length; i++) {
@@ -258,7 +257,7 @@ public class MatrizGrafo<V> {
         }
     }
 
-    
+
 
 
     }

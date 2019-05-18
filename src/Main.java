@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 /*
 Sara Zavala 18893
@@ -15,29 +16,57 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Scanner teclado = new Scanner(System.in);
-        MatrizGrafo<String> nuevoGrafo = new MatrizGrafo<String>(1);
+
+
+//https://blog.openalfa.com/como-leer-un-fichero-de-texto-linea-a-linea-en-java
+/*********************************************************************/
         File file = new File("guategrafo.txt");
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
         String line;
+        ArrayList<String> informacion = new ArrayList<>();
         while((line = br.readLine()) != null){
             String[] parts = line.split(" ");
-            String ciudadOrigen = parts[0];
-            if(!nuevoGrafo.lista.contains(ciudadOrigen)){
-                nuevoGrafo.add(ciudadOrigen);
+            String origen = parts[0];
+            if(!informacion.contains(origen)){
+                informacion.add(origen);
             }
-            String ciudadDestino = parts[1];
-            if(!nuevoGrafo.lista.contains(ciudadDestino)){
-                nuevoGrafo.add(ciudadDestino);
+            String destino = parts[1];
+            if(!informacion.contains(destino)){
+                informacion.add(destino);
             }
-            else{
-                System.out.println("Archivo no leido");
-            }
-            int x = Integer.parseInt(parts[2]);
-            nuevoGrafo.addEdge(ciudadOrigen,ciudadDestino,x);
-
-
         }
+        int total = informacion.size();
+       System.out.println(total);
+
+/*********************************************************************/
+        MatrizGrafo<String> grafito = new MatrizGrafo<String>(total);
+/*********************************************************************/
+
+        File filex2 = new File("guategrafo.txt");
+        FileReader frx2 = new FileReader(filex2);
+        BufferedReader brx2 = new BufferedReader(frx2);
+
+        String linex2;
+
+        while((linex2 = brx2.readLine()) != null){
+            String[] parts = linex2.split(" ");
+            String origen = parts[0];
+            if(!grafito.lista.contains(origen)){
+                grafito.add(origen); }
+            String desitino = parts[1];
+            if(!grafito.lista.contains(desitino)){
+                grafito.add(desitino); }
+            int distancia = Integer.parseInt(parts[2]);
+            grafito.addEdge(origen,desitino,distancia);
+            //grafito.MostrarEnPantalla();
+        }
+        grafito.floyd();
+        grafito.MostrarEnPantalla();
+
+
+
+
 
         while (true) {
             System.out.println("Menu de opciones");
