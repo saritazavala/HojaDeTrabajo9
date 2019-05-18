@@ -9,6 +9,8 @@ public class MatrizGrafo<V,E> {
     //http://www.cs.williams.edu/~jeannie/cs136/javadoc/structure5/structure5/GraphMatrixDirected.html#GraphMatrixDirected
     //http://www.java2s.com/Code/Java/Collections-Data-Structure/Adirectedgraphdatastructure.htm
     //https://www.dreamincode.net/forums/topic/166043-help-me-implement-addedge-method/
+    // http://dept.cs.williams.edu/~bailey/JavaStructures/Book_files/JavaStructures.pdf
+    //https://algorithms.tutorialhorizon.com/graph-implementation-adjacency-matrix-set-3/
 
     public int size;
     public Arco<V> info[][]; //Matriz
@@ -108,4 +110,14 @@ public class MatrizGrafo<V,E> {
         return lista.get(lista.size() - 1 - minPos);
 
         }
+
+
+    public Double getDistanciaMinima(V nom1, V nom2) {
+        Vertice<V> vtx1 = vert.get(nom1);
+        Vertice<V> vtx2 = vert.get(nom2);
+        if (vtx1 == null || vtx2 == null){
+            return null;
+        }
+        return this.datos[vtx1.getPosicion()][vtx2.getPosicion()];
+    }
     }
