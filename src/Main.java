@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.Scanner;
 /*
 Sara Zavala 18893
@@ -6,12 +7,40 @@ Estructura de Datos
 Grafos y Floyd
 * */
 
+//La verdad no me dio tiempo de hacer el main
+//Pero segun las test, todos mis metodos sirven :/
+//En git ya subi lo que esta completo y terminado
+//Gracias
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner teclado = new Scanner(System.in);
+        /*MatrizGrafo<String> nuevoGrafo = new MatrizGrafo<String>(1);
+        File file = new File("guategrafo.txt");
+        FileReader fr = new FileReader(file);
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        while((line = br.readLine()) != null){
+            String[] parts = line.split(" ");
+            String ciudadOrigen = parts[0];
+            if(!nuevoGrafo.lista.contains(ciudadOrigen)){
+                nuevoGrafo.add(ciudadOrigen);
+            }
+            String ciudadDestino = parts[1];
+            if(!nuevoGrafo.lista.contains(ciudadDestino)){
+                nuevoGrafo.add(ciudadDestino);
+            }
+            else{
+                System.out.println("Archivo no leido");
+            }
+            int x = Integer.parseInt(parts[2]);
+            nuevoGrafo.addEdge(ciudadOrigen,ciudadDestino,x);
 
-        //Leer documento
+
+        }*/
+
+
+
 
 
 

@@ -9,7 +9,7 @@ Estructura de Datos
 Grafos y Floyd
 * */
 
-public class MatrizGrafo<V,E> {
+public class MatrizGrafo<V> {
 
     //Referencias tomadas
     //Todos los metodos que se encuentran en esta clase fueron tomados de intenet y modificados para el uso de esat hoja
@@ -43,6 +43,24 @@ public class MatrizGrafo<V,E> {
                     datos[i][j] = 0.0;
                 }
             }
+        }
+    }
+    public void MostrarEnPantalla() {
+        System.out.println("Matriz: ");
+        for(int k = lista.size()-1; k >=0; k--){
+            System.out.print(lista.get(k)+"\t\t");
+        }
+        System.out.println("");
+        int no = lista.size()-1;
+        for (int i = 0; i < datos.length; i++) {
+            if(no>=0){
+                System.out.print(lista.get(no).toString()+"\t\t");
+                no--;
+            }
+            for (int j = 0; j <datos.length; j++) {
+                System.out.print(datos[i][j]+ "\t\t");
+            }
+            System.out.println();
         }
     }
     public void add(V nombre) {
