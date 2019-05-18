@@ -23,16 +23,35 @@ public class Main {
                 String destino = teclado.nextLine();
             }
 
-            if (opcion.equals("2")) {
+            else if (opcion.equals("2")) {
                 System.out.println("El centro del grafo es: ");
             }
 
-            if (opcion.equals("3")) {
+            else if (opcion.equals("3")) {
+                System.out.println("Ingrese opcion deseada");
+                System.out.println("1. Agregar conexion");
+                System.out.println("2. Eliminar conexion");
+                String modificacion = teclado.nextLine();
+                if (modificacion.equals("1")) {
+
+                }
+                else if (modificacion.equals("2")){
+
+                }
+                else {
+                    System.out.println("Opcion no valida");
+                }
+
+
 
             }
-            if (opcion.equals("4")) {
+            else if (opcion.equals("4")) {
                 System.out.println("Thanks, bai");
                 break;
+            }
+
+            else{
+                System.out.println("Opcion no valida");
             }
 
 
