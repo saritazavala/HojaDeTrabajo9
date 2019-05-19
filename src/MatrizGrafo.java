@@ -74,7 +74,6 @@ public class MatrizGrafo<V> {
             System.out.println();
         }
     }
-
     /**
      * @param nombre
      * Añadir Vertices
@@ -85,8 +84,6 @@ public class MatrizGrafo<V> {
         dict.put(nombre, new Vertice<>(nombre,pos));
         lista.add(nombre.toString());
     }
-
-
     /**
      * @param vtx1
      * @param vtx2
@@ -128,7 +125,6 @@ public class MatrizGrafo<V> {
             return cadena2;
         }
     }
-
     /**
      * @param label1
      * @param label2
@@ -142,8 +138,6 @@ public class MatrizGrafo<V> {
         if (vtx1 == null || vtx2 == null) return "Conexion no existente ";
         return "La ruta mas corta es de: " + this.datos[vtx1.posicion][vtx2.posicion] + ".";
     }
-
-
     /**
      *
      * @return String
@@ -177,9 +171,7 @@ public class MatrizGrafo<V> {
             }
         }
         return lista.get(lista.size() - 1 - minPos);
-
-        }
-
+    }
 
     /**
      * @param nom1
@@ -240,7 +232,6 @@ public class MatrizGrafo<V> {
         }
         datos=D;
     }
-
     /**
      * Metodo de ayuda para el algoritmo de floyd, extriado de:
      * https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_algoritmo_de_Floyd_en_Java
@@ -257,11 +248,7 @@ public class MatrizGrafo<V> {
             return enl_rec;
         }
     }
-
-
-
-
-    }
+}
 
 
 
