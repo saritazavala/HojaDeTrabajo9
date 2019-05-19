@@ -61,8 +61,8 @@ public class Main {
             grafito.addEdge(origen,desitino,distancia);
             //grafito.MostrarEnPantalla();
         }
-        grafito.floyd();
-        grafito.MostrarEnPantalla();
+       grafito.floyd();
+        //grafito.MostrarEnPantalla();
         System.out.println("");
 
 
@@ -71,7 +71,8 @@ public class Main {
             System.out.println("1. Buscar distancia entre ciudades");
             System.out.println("2. Mosrar centro del grafo");
             System.out.println("3. Modificar Grafo");
-            System.out.println("4. Salir");
+            System.out.println("4. Imprimir matriz");
+            System.out.println("5. Salir");
 
             String opcion = teclado.nextLine();
 
@@ -100,10 +101,41 @@ public class Main {
                 System.out.println("1. Agregar conexion");
                 System.out.println("2. Eliminar conexion");
                 String modificacion = teclado.nextLine();
+
                 if (modificacion.equals("1")) {
+                    System.out.println("Ingrese el nombre de la ciudad origen");
+                    String origen = teclado.nextLine();
+                    System.out.println("Ingrese el nombre de la ciudad destino");
+                    String destino = teclado.nextLine();
+                    System.out.println("Ingrese la distancia entre ellas");
+                    double distancia = teclado.nextDouble();
+                    teclado.nextLine();
+                    try {
+                        grafito.addEdge(origen,destino,distancia);
+                        System.out.println("Conexion creada");
+                    }
+                    catch (Exception e){
+                        System.out.println("Opciones ingresadas invalidas");
+                    }
+                    grafito.floyd();
+                    grafito.MostrarEnPantalla();
+
 
                 }
                 else if (modificacion.equals("2")){
+                    System.out.println("Ingrese el nombre de la ciudad origen");
+                    String origen = teclado.nextLine();
+                    System.out.println("Ingrese el nombre de la ciudad destino");
+                    String destino = teclado.nextLine();
+                    try {
+                        grafito.removeEdge(origen,destino);
+                        System.out.println("Eliminacion completada");
+                    }
+                    catch (Exception e){
+                        System.out.println("Opciones ingresadas invalidas");
+                    }
+                    grafito.floyd();
+
 
                 }
                 else {
@@ -114,6 +146,9 @@ public class Main {
 
             }
             else if (opcion.equals("4")) {
+                grafito.MostrarEnPantalla();
+            }
+            else if (opcion.equals("5")) {
                 System.out.println("Thanks, bai");
                 break;
             }
