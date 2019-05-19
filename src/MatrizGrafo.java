@@ -57,15 +57,16 @@ public class MatrizGrafo<V> {
      */
     public void MostrarEnPantalla() {
         System.out.println("Matriz: ");
+        System.out.print("\t\t\t");
         for(int k = lista.size()-1; k >=0; k--){
             System.out.print(lista.get(k)+"\t\t");
         }
         System.out.println("");
-        int number = lista.size()-1;
+        int no = lista.size()-1;
         for (int i = 0; i < datos.length; i++) {
-            if(number>=0){
-                System.out.print(lista.get(number).toString()+"\t\t");
-                number--;
+            if(no>=0){
+                System.out.print(lista.get(no).toString()+"\t\t");
+                no--;
             }
             for (int j = 0; j <datos.length; j++) {
                 System.out.print(datos[i][j]+ "\t\t");

@@ -51,25 +51,22 @@ public class Main {
 
         while((linex2 = brx2.readLine()) != null){
             String[] parts = linex2.split(" ");
-            String origin = parts[0];
-            if(!grafito.lista.contains(origin)){
-                grafito.add(origin); }
-            String destiny = parts[1];
-            if(!grafito.lista.contains(destiny)){
-                grafito.add(destiny); }
+            String origen = parts[0];
+            if(!grafito.lista.contains(origen)){
+                grafito.add(origen); }
+            String desitino = parts[1];
+            if(!grafito.lista.contains(desitino)){
+                grafito.add(desitino); }
             int distancia = Integer.parseInt(parts[2]);
-            grafito.addEdge(origin,destiny,distancia);
+            grafito.addEdge(origen,desitino,distancia);
             //grafito.MostrarEnPantalla();
         }
         grafito.floyd();
         grafito.MostrarEnPantalla();
-
-
-
+        System.out.println("");
 
 
         while (true) {
-
             System.out.println("Menu de opciones");
             System.out.println("1. Buscar distancia entre ciudades");
             System.out.println("2. Mosrar centro del grafo");
@@ -83,10 +80,19 @@ public class Main {
                 String origen = teclado.nextLine();
                 System.out.println("Ingrese el nombre de la ciudad destino");
                 String destino = teclado.nextLine();
+                if (grafito.lista.contains(origen) && grafito.lista.contains(destino)) {
+                    Double distanciaTotal = grafito.getDistanciaMinima(origen, destino);
+                    if (distanciaTotal != Double.POSITIVE_INFINITY) {
+                        System.out.println("La distancia minima entre" + origen + "y" + destino + "es de:" + distanciaTotal + "km");
+                    }
+                    else {
+                        System.out.println("Ciudades no encontradas");
+                    }
+                }
             }
 
             else if (opcion.equals("2")) {
-                System.out.println("El centro del grafo es: "+ grafito.getCentroGrafo());
+                System.out.println("El centro del grafo es:"+ grafito.getCentroGrafo());
             }
 
             else if (opcion.equals("3")) {
