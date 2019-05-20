@@ -62,11 +62,11 @@ public class MatrizGrafo<V> {
             System.out.print(lista.get(k)+"\t\t");
         }
         System.out.println("");
-        int no = lista.size()-1;
+        int holi = lista.size()-1;
         for (int i = 0; i < datos.length; i++) {
-            if(no>=0){
-                System.out.print(lista.get(no).toString()+"\t\t");
-                no--;
+            if(holi>=0){
+                System.out.print(lista.get(holi).toString()+"\t\t");
+                holi--;
             }
             for (int j = 0; j <datos.length; j++) {
                 System.out.print(datos[i][j]+ "\t\t");
@@ -232,8 +232,7 @@ public class MatrizGrafo<V> {
         }
         datos=D;
     }
-    /**
-     * Metodo de ayuda para el algoritmo de floyd, extriado de:
+    /*
      * https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_Java/Ap%C3%A9ndices/Implementaci%C3%B3n_del_algoritmo_de_Floyd_en_Java
      */
     public String enlaces(int i,int k,String[][] aux_enlaces,String enl_rec)
