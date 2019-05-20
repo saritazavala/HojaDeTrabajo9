@@ -21,12 +21,12 @@ public class Arco<V> {
     private boolean visitado;
 
     /**
-     * @param vrtvrtx11
+     * @param vrtvrtx1
      * @param vrtx2
      * @param distancia
      * @param bool
      */
-    public Arco(V vrtvrtx11, V vrtx2, double distancia, boolean bool) {
+    public Arco(V vrtvrtx1, V vrtx2, double distancia, boolean bool) {
         this.vrtx1 = vrtx1;
         this.vrtx2 = vrtx2;
         this.distancia = distancia;
